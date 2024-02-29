@@ -1,0 +1,68 @@
+# Permissions for logd domain
+allow logd rootfs:file { entrypoint map read execute getattr open };
+allow logd rootfs:dir { read };
+allow logd rootfs:file { open };
+
+# Permissions for init domain
+allow init functionfs:dir { mounton };
+allow init hwservicemanager_prop:property_service { set };
+
+
+# Permissions for recovery domain
+
+allow recovery self:process { execmem };
+allow recovery ashmem_libcutils_device:chr_file { execute };
+allow recovery self:dir { search getattr open };
+allow recovery self:file { read write getattr open };
+allow recovery vendor_userdir_file:dir { read getattr };
+allow recovery block_device:file { ioctl open };
+
+allow recovery kernel:system { module_request };
+allow recovery recovery:netlink_kobject_uevent_socket { create bind };
+allow recovery recovery:file { create write };
+allow recovery recovery:dir { add_name create setattr };
+allow recovery recovery:file { relabelfrom };
+allow recovery recovery:dir { relabelto };
+allow recovery rootfs:dir { create add_name setattr };
+allow recovery rootfs:file { create write append open setattr };
+allow recovery self:capability { fsetid };
+allow recovery rootfs:fifo_file { create ioctl read };
+allow recovery rootfs:capability { sys_rawio };
+
+
+allow recovery rootfs:dir { read open };
+allow recovery rootfs:file { read open };
+allow recovery rootfs:netlink_kobject_uevent_socket { read };
+allow recovery rootfs:file { read open }; 
+
+
+
+# For recovery.log
+allow recovery vfat:file { write open getattr setattr };
+allow recovery mtp_device:chr_file { ioctl };
+
+# For kmsg
+allow recovery kmsg_device:chr_file { read open };
+
+# For "/"
+allow recovery vfat:dir { write add_name };
+allow recovery vfat:file { create };
+
+# For dmesg.log
+allow recovery vfat:dir { add_name };
+allow recovery vfat:file { create };
+
+# For write permission on the logdr socket file
+allow recovery logdr_socket:sock_file { write };
+
+# For connectto permission to the logdr socket
+allow recovery logd:unix_stream_socket { connectto };
+
+# For remove_name permission
+allow recovery vfat:dir { remove_name };
+
+# For unlink permission
+allow recovery vfat:file { unlink };
+
+
+
