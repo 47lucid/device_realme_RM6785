@@ -47,12 +47,12 @@ if [ ! -d "hardware/lineage/compat" ]; then
     git clone https://github.com/LineageOS/android_hardware_lineage_compat.git -b lineage-21.0 hardware/lineage/compat
 fi
 
-echo 'Cloning AOSP Clang 17.0.4 [7/7]' 
+echo 'Cloning AOSP Clang 18.0.0 [7/7]' 
 # AOSP Clang 17.0.4 
 rm -rf prebuilts/clang/host/linux-x86/r498229b 
 if [ ! -d "prebuilts/clang/host/linux-x86/r498229b" ]; then 
     mkdir -p prebuilts/clang/host/linux-x86/r498229b 
-    git clone https://gitlab.com/itsshashanksp/android_prebuilts_clang_host_linux-x86_clang-r498229b.git -b 13.0 prebuilts/clang/host/linux-x86/r498229b
+    git clone https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r510928.git -b 14.0 prebuilts/clang/host/linux-x86/r510928
 fi
 
 echo 'Completed, Now proceeding to lunch'
