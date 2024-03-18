@@ -50,8 +50,8 @@ fi
 echo 'Cloning AOSP Clang 18.0.0 [7/7]' 
 # AOSP Clang 17.0.4 
 rm -rf prebuilts/clang/host/linux-x86/r498229b 
-if [ ! -d "prebuilts/clang/host/linux-x86/r498229b" ]; then 
-    mkdir -p prebuilts/clang/host/linux-x86/r498229b 
+if [ ! -d "prebuilts/clang/host/linux-x86/r510928" ]; then 
+    mkdir -p prebuilts/clang/host/linux-x86/r510928 
     git clone https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r510928.git -b 14.0 prebuilts/clang/host/linux-x86/r510928
 fi
 
